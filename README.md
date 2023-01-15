@@ -1,6 +1,7 @@
-# Naomis-Backend-Server
+# Naomi's Backend Server
 The "/var/www/html" of my ubuntu php server
 
+By Naomi/ William James Bennett 
 
 ## Requirements
 
