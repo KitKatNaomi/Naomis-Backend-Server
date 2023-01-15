@@ -1,3 +1,11 @@
+<?php
+  $ip = $_SERVER['REMOTE_ADDR'];
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, "https://ipinfo.io/{$ip}/json");
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  $data = json_decode(curl_exec($ch), true);
+  curl_close($ch);
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
@@ -79,7 +87,7 @@
       <h3>Neocities View Counters</h3>
       <p>This is a PHP script that uses the cURL library and the Imagick extension to create an image displaying the number of views for a website on the Neocities platform. The script starts by initializing some variables, then it iterates over the $_GET array to check for the values of the "site", "bg" and "fg" parameters. The script then encodes the site name and uses cURL to send a GET request to the Neocities API, passing the encoded site name as a query parameter. The API returns a JSON object containing information about the website, including the number of views. The script uses the json_decode() function to convert the JSON string into a PHP array. Then, it uses the Imagick extension to create a new image, sets the background color and text color, draws the number of views on the image, and outputs the image as a JPEG via echo function. --- Evaluation done by ChatGPT.</p>
       <p>Try it yourself: <input type="text" placeholder="neocities username" value="naomis-world" id="site"> <input type="text" placeholder="text color" value="white" id="text"> <input type="text" placeholder="background color" value="pink" id="background"> <img src="viewcounter/?site=naomis-world&fg=white&bg=pink" id="img">
-      <p>Run your own: </p>
+      <p>Run your own view counter: <a href="https://github.com/KitKatNaomi/Naomis-Backend-Server/">Here</a></p>
       <script>
         var siteInput = document.getElementById("site");
         var textInput = document.getElementById("text");
@@ -103,7 +111,7 @@
       <button class="full" onclick="location.reload()">Reload Page</button>
     </div>
     <div id="footer">
-      <p>Copyright © 2023 Naomi's Backend Server</p>
+      <p>Copyright Â© 2023 Naomi's Backend Server</p>
     </div>
   </body>
 </html>
